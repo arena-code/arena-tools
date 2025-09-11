@@ -384,6 +384,7 @@ export interface ApiLicenseLicense extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    configHash: Schema.Attribute.Text;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

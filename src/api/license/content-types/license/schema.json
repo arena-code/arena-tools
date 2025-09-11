@@ -21,6 +21,9 @@
     "deviceId": {
       "type": "string"
     },
+    "configHash": {
+      "type": "text"
+    },
     "expiration": {
       "type": "date"
     }
