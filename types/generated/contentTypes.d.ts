@@ -373,33 +373,34 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiAccessTokenAccessToken extends Struct.SingleTypeSchema {
-  collectionName: 'access_tokens';
+export interface ApiArenaToolsConfigArenaToolsConfig
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'arena_tools_configs';
   info: {
-    displayName: 'Access Token';
-    pluralName: 'access-tokens';
-    singularName: 'access-token';
+    displayName: 'Arena Tools Config';
+    pluralName: 'arena-tools-configs';
+    singularName: 'arena-tools-config';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
+    Config: Schema.Attribute.JSON;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Expiration: Schema.Attribute.DateTime;
+    Interval: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::access-token.access-token'
+      'api::arena-tools-config.arena-tools-config'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    Token: Schema.Attribute.Text;
+    Symbol: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    User: Schema.Attribute.Text;
   };
 }
 
@@ -912,7 +913,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::access-token.access-token': ApiAccessTokenAccessToken;
+      'api::arena-tools-config.arena-tools-config': ApiArenaToolsConfigArenaToolsConfig;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
