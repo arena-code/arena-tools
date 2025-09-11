@@ -373,7 +373,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiAccessTokenAccessToken extends Struct.CollectionTypeSchema {
+export interface ApiAccessTokenAccessToken extends Struct.SingleTypeSchema {
   collectionName: 'access_tokens';
   info: {
     displayName: 'Access Token';

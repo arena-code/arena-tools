@@ -1,5 +1,5 @@
 {
-  "kind": "collectionType",
+  "kind": "singleType",
   "collectionName": "access_tokens",
   "info": {
     "singularName": "access-token",
