@@ -373,34 +373,34 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiArenaToolsConfigArenaToolsConfig
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'arena_tools_configs';
+export interface ApiLicenseLicense extends Struct.CollectionTypeSchema {
+  collectionName: 'licenses';
   info: {
-    displayName: 'Arena Tools Config';
-    pluralName: 'arena-tools-configs';
-    singularName: 'arena-tools-config';
+    displayName: 'License';
+    pluralName: 'licenses';
+    singularName: 'license';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Config: Schema.Attribute.JSON;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Interval: Schema.Attribute.String;
+    deviceId: Schema.Attribute.String;
+    expiration: Schema.Attribute.Date;
+    internalLicenseKey: Schema.Attribute.String & Schema.Attribute.Unique;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::arena-tools-config.arena-tools-config'
+      'api::license.license'
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
-    Symbol: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    user: Schema.Attribute.String;
   };
 }
 
@@ -913,7 +913,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::arena-tools-config.arena-tools-config': ApiArenaToolsConfigArenaToolsConfig;
+      'api::license.license': ApiLicenseLicense;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

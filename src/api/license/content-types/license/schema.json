@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "licenses",
+  "info": {
+    "singularName": "license",
+    "pluralName": "licenses",
+    "displayName": "License"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user": {
+      "type": "string"
+    },
+    "internalLicenseKey": {
+      "type": "string",
+      "unique": true
+    },
+    "deviceId": {
+      "type": "string"
+    },
+    "expiration": {
+      "type": "date"
+    }
+  }
+}
